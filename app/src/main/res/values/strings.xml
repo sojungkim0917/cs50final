@@ -3,4 +3,5 @@
     <string name="name">ABC123</string>
     <string name="contentDesc">Button</string>
     <string name="second_page">This is second page</string>
+    <string name="TestButton">Test</string>
 </resources>

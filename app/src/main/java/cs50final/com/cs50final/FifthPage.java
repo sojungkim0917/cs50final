@@ -1,0 +1,14 @@
+package cs50final.com.cs50final;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;package cs50final.com.cs50final;
+
+
+public class FifthPage extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_fifth_page);
+    }
+}

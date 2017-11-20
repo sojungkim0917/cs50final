@@ -7,6 +7,8 @@
     <string name="third_page">This is third page</string>
     <string name="title_card_flip">Card Flip</string>
 
+    <string name="action_info">Photo info</string>
+    <string name="action_photo">View photo</string>
 
     <!-- Other strings -->
     <string name="card_back_title">Angry Red Android</string>

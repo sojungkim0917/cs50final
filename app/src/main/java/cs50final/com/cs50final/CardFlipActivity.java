@@ -59,10 +59,7 @@ public class CardFlipActivity extends Activity
             // If there is no saved instance state, add a fragment representing the
             // front of the card to this activity. If there is saved instance state,
             // this fragment will have already been added to the activity.
-            getFragmentManager()
-                    .beginTransaction()
-                    .add(R.id.container, new CardFrontFragment())
-                    .commit();
+            getFragmentManager().beginTransaction().add(R.id.container, new CardFrontFragment()).commit();
         } else {
             mShowingBack = (getFragmentManager().getBackStackEntryCount() > 0);
         }
@@ -72,7 +69,7 @@ public class CardFlipActivity extends Activity
         getFragmentManager().addOnBackStackChangedListener(this);
     }
 
-    private void flipCard() {
+    public void flipCard(View v) {
         if (mShowingBack) {
             getFragmentManager().popBackStack();
             return;
@@ -152,10 +149,7 @@ public class CardFlipActivity extends Activity
                 // See http://developer.android.com/design/patterns/navigation.html for more.
                 NavUtils.navigateUpTo(this, new Intent(this, MainActivity.class));
                 return true;
-
-            case R.id.action_flip:
-                flipCard();
-                return true;
+            
         }
 
         return super.onOptionsItemSelected(item);

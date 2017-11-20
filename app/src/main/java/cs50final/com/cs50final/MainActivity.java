@@ -14,7 +14,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void goToSecondActivity(View v) {
+    public void goToCardFlipActivity(View v) {
+        Intent intent = new Intent(this, CardFlipActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToSecondPage(View v) {
         Intent intent = new Intent(this, SecondPage.class);
         startActivity(intent);
     }

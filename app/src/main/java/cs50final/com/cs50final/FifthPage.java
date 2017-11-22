@@ -1,7 +1,8 @@
 package cs50final.com.cs50final;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;package cs50final.com.cs50final;
+
 
 public class FifthPage extends AppCompatActivity {
 

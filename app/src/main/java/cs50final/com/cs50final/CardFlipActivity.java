@@ -149,7 +149,7 @@ public class CardFlipActivity extends Activity
                 // See http://developer.android.com/design/patterns/navigation.html for more.
                 NavUtils.navigateUpTo(this, new Intent(this, MainActivity.class));
                 return true;
-
+            
         }
 
         return super.onOptionsItemSelected(item);
@@ -183,3 +183,4 @@ public class CardFlipActivity extends Activity
         }
     }
 }
+17

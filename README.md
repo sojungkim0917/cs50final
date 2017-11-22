@@ -24,7 +24,15 @@ Home page 2 button>>>buttons to subject 1 path
 ***Possible difficulty setting/age or grade option { table return based on user input, cross referencing tables of parameters}
 ***
 
-
+11/21
+App name: Smile, ABC 123!
+Casey - design the UIs, make main page, correct the buttons leading to right pages
+SoJung - Look for more open sources (for test bank piece, animation, database), look how into database is incorporated
+Everything can be in images but have to be saved into drawable folder in res
+For math, it could be sequencing or string
+Youtube video/GIFs for reward in testing mode
+*Youtube video can be deleted, so maybe download/redirect*
+Sishir - Look for background (consistent throughout the app), decide which page would be dynamic/static (dynamic = when you get the correct answer, sun rises or color of the background changes)
 
 Colors to use
 Fonts

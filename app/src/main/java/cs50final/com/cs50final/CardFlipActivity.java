@@ -30,6 +30,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import static android.view.MenuItem.*;
+
 /**
  * Demonstrates a "card-flip" animation using custom fragment transactions ({@link
  * android.app.FragmentTransaction#setCustomAnimations(int, int)}).

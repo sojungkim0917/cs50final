@@ -1,5 +1,7 @@
 package cs50final.com.cs50final;
 
+/* Need to work on how to set the end of questions and pop dialog alert up*/
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;

@@ -5,16 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class SecondPage extends AppCompatActivity {
+public class ABCMain extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second_page);
+        setContentView(R.layout.abc_main);
     }
 
-    public void goToThirdActivity(View v) {
-        Intent intent = new Intent(this, ThirdPage.class);
+    public void goToHomepage(View v) {
+        Intent intent = new Intent(this, Homepage.class);
         startActivity(intent);
     }
+
 }

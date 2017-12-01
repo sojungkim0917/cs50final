@@ -23,8 +23,6 @@
         used for programmatically-instantiated action bar items, they
         are defined here.
     -->
-    <item type="id" name="action_next" />
-    <item name="action_flip" type="id">action_flip</item>
     <item name="btn_flip" type="id">btn_flip</item>
 
 

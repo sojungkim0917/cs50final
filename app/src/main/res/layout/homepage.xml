@@ -4,33 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cs50final.com.cs50final.MainActivity"
+    tools:context="cs50final.com.cs50final.Homepage"
     android:background="@drawable/learnplay">
 
     <ImageButton
         android:id="@+id/imageButton5"
         android:layout_width="160dp"
         android:layout_height="85dp"
+        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="409dp"
         android:layout_weight="1"
         android:adjustViewBounds="true"
         android:cropToPadding="true"
-        android:onClick="goToCardFlipActivity"
+        android:onClick="goToLiteracy"
         android:padding="1dp"
         android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/abc_button"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="409dp" />
+        android:layout_marginLeft="31dp"
+        android:layout_marginRight="8dp" />
 
     <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="160dp"
         android:layout_height="85dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="410dp"
         android:layout_weight="1"
         android:adjustViewBounds="true"
-        android:onClick="goToSecondPage"
+        android:onClick="goToMath"
         android:padding="1dp"
         android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/b123"
-        tools:layout_editor_absoluteX="199dp"
-        tools:layout_editor_absoluteY="410dp" />
+        android:layout_marginRight="57dp"
+        android:layout_marginLeft="7dp" />
 </android.support.constraint.ConstraintLayout>

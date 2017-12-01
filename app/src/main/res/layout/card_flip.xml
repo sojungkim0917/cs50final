@@ -18,7 +18,7 @@
         android:id="@+id/PrevCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left|bottom"
+        android:layout_gravity="start|bottom"
         android:text="@string/PrevCard"
         android:visibility="visible"
         tools:text="@string/PrevCard" />
@@ -27,7 +27,7 @@
         android:id="@+id/NextCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right|bottom"
+        android:layout_gravity="end|bottom"
         android:text="@string/NextCard"
         android:visibility="visible"
         tools:text="@string/NextCard" />

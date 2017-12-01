@@ -31,6 +31,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Homepage" />
         </activity>
+        <activity android:name=".LiteracyHome">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LiteracyHome" />
+        </activity>
+        <activity android:name=".ABCFlashcard">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ABCFlashcard" />
+        </activity>
         <activity android:name=".Math">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

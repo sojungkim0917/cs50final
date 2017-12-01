@@ -1,23 +1,22 @@
 package cs50final.com.cs50final;
 
-/*
- * Created by sojungkim on 2017. 11. 29..
- */
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class Homepage extends ABCMain {
+public class LiteracyHome extends AppCompatActivity {
+
+    private View v;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.homepage);
+        setContentView(R.layout.literacyhome);
     }
 
-    public void goToABCStudy(View v) {
-        Intent intent = new Intent(this, LiteracyHome.class);
+    public void goToABCFlashcard(View v) {
+        Intent intent = new Intent(this, ABCFlashcard.class);
         startActivity(intent);
     }
 
@@ -25,10 +24,4 @@ public class Homepage extends ABCMain {
         Intent intent = new Intent(this, Literacy.class);
         startActivity(intent);
     }
-
-    public void goToMath(View v) {
-        Intent intent = new Intent(this, Math.class);
-        startActivity(intent);
-    }
-
 }

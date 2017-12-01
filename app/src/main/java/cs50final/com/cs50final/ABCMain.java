@@ -18,4 +18,8 @@ public class ABCMain extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToLiteracyHome(View v) {
+        Intent intent = new Intent(this, LiteracyHome.class);
+        startActivity(intent);
+    }
 }

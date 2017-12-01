@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cs50final.com.cs50final.ABCMain"
+    android:background="@drawable/myabcflashcards">
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="339dp"
+        android:layout_height="102dp"
+        android:layout_marginBottom="124dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/app_name"
+        android:onClick="goToABCFlashcard"
+        android:padding="13dp"
+        android:scaleType="fitCenter"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/flashcards" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="326dp"
+        android:layout_height="95dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/app_name"
+        android:onClick="goToLiteracy"
+        android:padding="13dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/play" />
+</android.support.constraint.ConstraintLayout>

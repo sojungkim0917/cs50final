@@ -4,12 +4,16 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:icon="@drawable/b123"
-        android:supportsRtl="true">
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity android:name=".ABCMain">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -20,16 +24,15 @@
                 android:value=".ABCMain" />
         </activity>
         <activity android:name=".Literacy">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".Homepage" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Homepage" />
         </activity>
         <activity android:name=".Math">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Homepage" />
         </activity>
-
     </application>
 
 </manifest>

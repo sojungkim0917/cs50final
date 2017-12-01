@@ -1,15 +1,4 @@
 <resources>
-    <string name="app_name">cs50final</string>
-    <string name="name">ABC123</string>
 
-    <!-- Other strings -->
-    <string name="Fliptext">Flip!</string>
-    <string name="CardFront">Question</string>
-    <string name="CardBack">Answer</string>
-    <string name="PrevCard">Previous</string>
-    <string name="NextCard">Next</string>
-    <string name="contentDesc">DeleteLater</string>
-    <string name="second_page">Delete</string>
-    <string name="third_page">Delete</string>
-
+    <string name="app_name">ABC123</string>
 </resources>

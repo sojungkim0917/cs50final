@@ -15,7 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Math extends Homepage
-        implements FragmentManager.OnBackStackChangedListener {
-    // To do
-        }
+//public class Math extends Homepage
+//        implements FragmentManager.OnBackStackChangedListener {
+//    // To do
+//        }

@@ -15,9 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Literacy extends Homepage
-        implements FragmentManager.OnBackStackChangedListener {
-
-     // To do
-
-    }
+//public class Literacy extends Homepage
+//        implements FragmentManager.OnBackStackChangedListener {
+//
+//     // To do
+//
+//    }

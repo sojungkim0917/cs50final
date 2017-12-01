@@ -3,6 +3,7 @@ package cs50final.com.cs50final;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,11 +16,14 @@ import android.speech.tts.TextToSpeech.OnInitListener;
 import android.view.View.OnClickListener;
 
 
-public class Math extends Homepage /*implements OnInitListener*/ {
+public class Math extends AppCompatActivity /*implements OnInitListener*/ {
 
-    Button answer1, answer2, answer3, answer4;
+    private Button mAnswer1;
+    private Button mAnswer2;
+    private Button mAnswer3;
+    private Button mAnswer4;
 
-    TextView question;
+    private TextView mQuestion;
 
     private MathQuestions mQuestions = new MathQuestions();
 
@@ -36,85 +40,96 @@ public class Math extends Homepage /*implements OnInitListener*/ {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.math);
 
-        answer1 = findViewById(R.id.answer1);
-        answer2 = findViewById(R.id.answer2);
-        answer3 = findViewById(R.id.answer3);
-        answer4 = findViewById(R.id.answer4);
+        mAnswer1 = findViewById(R.id.answer1);
+        mAnswer2 = findViewById(R.id.answer2);
+        mAnswer3 = findViewById(R.id.answer3);
+        mAnswer4 = findViewById(R.id.answer4);
 
-        question = findViewById(R.id.question);
+        mQuestion = findViewById(R.id.question);
+
+        updateQuestion(mQuestionIndex);
 
         /*Intent checkTTSIntent = new Intent();
         checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
         startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);*/
 
-        answer1.setOnClickListener(new View.OnClickListener() {
+        mAnswer1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (answer1.getText() == mAnswer) {
+                if (mAnswer1.getText() == mAnswer) {
                     mScore++;
                     /*readNumber();
-                } else {*/
-                    updateQuestion(mQuestionIndex + 1);
+                } else {*/}
+                if (mQuestionIndex < mQuestionsLength + 1) {
                     mQuestionIndex++;
+                    updateQuestion(mQuestionIndex);
+                    } else {
+                    gameOver();
                 }
             }
         });
 
-        answer2.setOnClickListener(new View.OnClickListener() {
+        mAnswer2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            if (answer2.getText() == mAnswer) {
+            if (mAnswer2.getText() == mAnswer) {
                 mScore++;
                 /*readNumber();
-            }
-                else {*/
-                updateQuestion(mQuestionIndex + 1);
+            } else {*/}
+            if (mQuestionIndex < mQuestionsLength + 1) {
                 mQuestionIndex++;
+                updateQuestion(mQuestionIndex);
+            }
+            else {
+                gameOver();
             }
         }
     });
 
-        answer3.setOnClickListener(new View.OnClickListener() {
+        mAnswer3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (answer3.getText() == mAnswer) {
+                if (mAnswer3.getText() == mAnswer) {
                     mScore++;
                     /*readNumber();
                 }
-                else {*/
-                    updateQuestion(mQuestionIndex + 1);
+                else {*/}
+                if (mQuestionIndex < mQuestionsLength + 1) {
                     mQuestionIndex++;
+                    updateQuestion(mQuestionIndex);
+                }
+                else {
+                    gameOver();
                 }
             }
         });
 
 
-        answer4.setOnClickListener(new View.OnClickListener() {
+        mAnswer4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (answer4.getText() == mAnswer) {
+                if (mAnswer4.getText() == mAnswer) {
                     mScore++;
                     /*readNumber();
                 }
-                else {*/
-                    updateQuestion(mQuestionIndex + 1);
+                else {*/}
+                if (mQuestionIndex < mQuestionsLength + 1) {
                     mQuestionIndex++;
+                    updateQuestion(mQuestionIndex);
+                }
+                else {
+                    gameOver();
                 }
             }
         });
-
-
-        if (mQuestionIndex == mQuestionsLength - 1) {
-            gameOver();
-        }
     }
 
     private void updateQuestion(int num) {
-        question.setText(mQuestions.getQuestion(num));
-        answer1.setText(mQuestions.getChoice1(num));
-        answer2.setText(mQuestions.getChoice2(num));
-        answer3.setText(mQuestions.getChoice3(num));
-        answer4.setText(mQuestions.getChoice4(num));
+        mQuestion.setText(mQuestions.getQuestion(num));
+        mAnswer1.setText(mQuestions.getChoice1(num));
+        mAnswer2.setText(mQuestions.getChoice2(num));
+        mAnswer3.setText(mQuestions.getChoice3(num));
+        mAnswer4.setText(mQuestions.getChoice4(num));
 
         mAnswer = mQuestions.getCorrectAnswer(num);
     }
@@ -169,7 +184,6 @@ public class Math extends Homepage /*implements OnInitListener*/ {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         startActivity(new Intent(getApplicationContext(), Math.class));
-                        finish();
                     }
                 })
                 .setNegativeButton("EXIT",new DialogInterface.OnClickListener() {
@@ -178,6 +192,7 @@ public class Math extends Homepage /*implements OnInitListener*/ {
                         finish();
                     }
                 });
+
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }

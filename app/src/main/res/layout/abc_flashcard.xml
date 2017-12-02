@@ -10,15 +10,23 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="122dp"
-        android:layout_height="61dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginStart="160dp"
-        android:text="Next-->"
-        android:textAppearance="@android:style/TextAppearance"
-        android:visibility="visible"
+        android:layout_width="125dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="170dp"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="575dp"
+        android:text="Next =>"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:typeface="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
+
+

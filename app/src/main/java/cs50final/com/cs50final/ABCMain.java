@@ -22,4 +22,23 @@ public class ABCMain extends AppCompatActivity {
         Intent intent = new Intent(this, LiteracyHome.class);
         startActivity(intent);
     }
+
+    public void goToFlashcard_Lit(View v) {
+        Intent intent = new Intent(this, Flashcard_Lit.class);
+        startActivity(intent);
+    }
+
+    public void goToABCMain(View v) {
+        Intent intent = new Intent(this, ABCMain.class);
+        startActivity(intent);
+    }
+
+    public void goToLiteracy(View v) {
+        Intent intent = new Intent(this, Literacy.class);
+        startActivity(intent);
+    }
+    public void goToMath(View v) {
+        Intent intent = new Intent(this, Math.class);
+        startActivity(intent);
+    }
 }

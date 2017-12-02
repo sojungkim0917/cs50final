@@ -15,13 +15,13 @@ public class LiteracyHome extends AppCompatActivity {
         setContentView(R.layout.literacyhome);
     }
 
-    public void goToABCFlashcard(View v) {
-        Intent intent = new Intent(this, ABCFlashcard.class);
+    public void goToFlashcard_Lit(View v) {
+        Intent intent = new Intent(this, Flashcard_Lit.class);
         startActivity(intent);
     }
 
     public void goToLiteracy(View v) {
-        Intent intent = new Intent(this, Literacy.class);
+        Intent intent = new Intent(this, Homepage.class);
         startActivity(intent);
     }
 }

@@ -16,8 +16,8 @@ public class Homepage extends ABCMain {
         setContentView(R.layout.homepage);
     }
 
-    public void goToABCStudy(View v) {
-        Intent intent = new Intent(this, LiteracyHome.class);
+    public void goToABCMain(View v) {
+        Intent intent = new Intent(this, ABCMain.class);
         startActivity(intent);
     }
 
@@ -30,5 +30,16 @@ public class Homepage extends ABCMain {
         Intent intent = new Intent(this, Math.class);
         startActivity(intent);
     }
+
+    public void goToFlashcard_Lit(View v) {
+        Intent intent = new Intent(this, Flashcard_Lit.class);
+        startActivity(intent);
+    }
+
+    public void goToLiteracyHome(View v) {
+        Intent intent = new Intent(this, LiteracyHome.class);
+        startActivity(intent);
+    }
+
 
 }

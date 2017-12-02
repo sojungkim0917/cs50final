@@ -178,8 +178,8 @@ public class Math extends AppCompatActivity /*implements OnInitListener*/ {
     }*/
 
     private void gameOver() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Math.this);
-        alertDialogBuilder
+       AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Math.this);
+          alertDialogBuilder
                 .setMessage("Game Over! Your score is " + mScore + " points.")
                 .setCancelable(false)
                 .setPositiveButton("NEW GAME", new DialogInterface.OnClickListener() {

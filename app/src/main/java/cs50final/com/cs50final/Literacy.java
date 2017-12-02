@@ -1,7 +1,9 @@
 package cs50final.com.cs50final;
 
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
 import android.widget.TextView;
+import android.os.Bundle;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -16,7 +18,10 @@ public class Literacy extends AppCompatActivity {
 
     private TextView mQuestion;
 
-    private Button mButtonChoice1, mButtonChoice2, mButtonChoice3, mButtonChoice4;
+    private Button mButtonChoice1;
+    private Button mButtonChoice2;
+    private Button mButtonChoice3;
+    private Button mButtonChoice4;
 
     private int mScore = 0;
     private int mQuestionNumber = 0;
@@ -26,15 +31,14 @@ public class Literacy extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.OnCreate(SavedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.abc_main);
 
         mQuestion = (TextView) findViewById(R.id.question);
 
-        mButtonChoice1 = (Button) findViewById(R.id.answer1);
-        mButtonChoice2 = (Button) findViewById(R.id.answer2);
-        mButtonChoice3 = (Button) findViewById(R.id.answer3);
-        mButtonChoice4 = (Button) findViewById(R.id.answer4);
+        mButtonChoice1 = findViewById(R.id.choice1);
+        mButtonChoice2 = findViewById(R.id.choice2);
+        mButtonChoice3 = findViewById(R.id.choice3);
+        mButtonChoice4 = findViewById(R.id.choice4);
 
         updateQuestion();
 

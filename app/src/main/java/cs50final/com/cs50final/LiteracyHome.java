@@ -1,3 +1,5 @@
+// Choose study or test
+
 package cs50final.com.cs50final;
 
 import android.content.Intent;

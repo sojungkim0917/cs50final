@@ -3,6 +3,10 @@
     package="cs50final.com.cs50final">
     <uses-permission android:name="android.permission.INTERNET"/>
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!--Always keep android:theme="@style/AppTheme" -->
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -27,17 +31,12 @@
         <activity android:name=".Literacy">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Homepage" />
+                android:value=".LiteracyHome" />
         </activity>
         <activity android:name=".LiteracyHome">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LiteracyHome" />
-        </activity>
-        <activity android:name=".ABCFlashcard">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ABCFlashcard" />
+                android:value=".Homepage" />
         </activity>
         <activity android:name=".Math">
             <meta-data
@@ -47,7 +46,7 @@
         <activity android:name=".Flashcard_Lit">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Flashcard_Lit" />
+                android:value=".LiteracyHome" />
         </activity>
     </application>
 

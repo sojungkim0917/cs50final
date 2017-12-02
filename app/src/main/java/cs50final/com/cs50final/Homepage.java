@@ -1,9 +1,5 @@
 package cs50final.com.cs50final;
 
-/*
- * Created by sojungkim on 2017. 11. 29..
- */
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;

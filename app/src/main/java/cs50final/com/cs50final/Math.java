@@ -1,7 +1,5 @@
 package cs50final.com.cs50final;
 
-/* Need to work on how to set the end of questions and pop dialog alert up*/
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -9,16 +7,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.app.AlertDialog;
+import android.support.v7.app.AlertDialog;
 import java.lang.String;
-import android.content.DialogInterface;
 import java.util.Locale;
+
+import android.content.DialogInterface;
 import android.widget.Toast;
-import android.speech.tts.TextToSpeech.OnInitListener;
-import android.view.View.OnClickListener;
 
 
-public class Math extends AppCompatActivity /*implements OnInitListener*/ {
+public class Math extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
     private Button mAnswer1;
     private Button mAnswer2;
@@ -27,15 +24,15 @@ public class Math extends AppCompatActivity /*implements OnInitListener*/ {
 
     private TextView mQuestion;
 
-    private MathQuestions mQuestions = new MathQuestions();
+    public MathQuestions mQuestions = new MathQuestions();
 
     private String mAnswer;
     private int mScore = 0;
-    private int mQuestionsLength = mQuestions.mQuestions.length;
     private int mQuestionIndex = 0;
+    private int mQuestionsLength = mQuestions.length();
 
-    /*private TextToSpeech myTTS;
-    private int MY_DATA_CHECK_CODE = 0;*/
+    private TextToSpeech myTTS;
+    private int MY_DATA_CHECK_CODE = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,22 +48,22 @@ public class Math extends AppCompatActivity /*implements OnInitListener*/ {
 
         updateQuestion(mQuestionIndex);
 
-        /*Intent checkTTSIntent = new Intent();
+        Intent checkTTSIntent = new Intent();
         checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-        startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);*/
+        startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);
 
         mAnswer1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (mAnswer1.getText() == mAnswer) {
                     mScore++;
-                    /*readNumber();
-                } else {*/}
-                if (mQuestionIndex < mQuestionsLength + 1) {
+                    readNumber();
+                }
+                if (mQuestionIndex == mQuestionsLength - 1) {
+                    gameOver();
+                    } else {
                     mQuestionIndex++;
                     updateQuestion(mQuestionIndex);
-                    } else {
-                    gameOver();
                 }
             }
         });
@@ -76,14 +73,14 @@ public class Math extends AppCompatActivity /*implements OnInitListener*/ {
             public void onClick(View view) {
             if (mAnswer2.getText() == mAnswer) {
                 mScore++;
-                /*readNumber();
-            } else {*/}
-            if (mQuestionIndex < mQuestionsLength + 1) {
-                mQuestionIndex++;
-                updateQuestion(mQuestionIndex);
+                readNumber();
+            }
+            if (mQuestionIndex == mQuestionsLength - 1) {
+                gameOver();
             }
             else {
-                gameOver();
+                mQuestionIndex++;
+                updateQuestion(mQuestionIndex);
             }
         }
     });
@@ -93,15 +90,14 @@ public class Math extends AppCompatActivity /*implements OnInitListener*/ {
             public void onClick(View view) {
                 if (mAnswer3.getText() == mAnswer) {
                     mScore++;
-                    /*readNumber();
+                    readNumber();
                 }
-                else {*/}
-                if (mQuestionIndex < mQuestionsLength + 1) {
-                    mQuestionIndex++;
-                    updateQuestion(mQuestionIndex);
+                if (mQuestionIndex == mQuestionsLength - 1) {
+                    gameOver();
                 }
                 else {
-                    gameOver();
+                    mQuestionIndex++;
+                    updateQuestion(mQuestionIndex);
                 }
             }
         });
@@ -112,15 +108,14 @@ public class Math extends AppCompatActivity /*implements OnInitListener*/ {
             public void onClick(View view) {
                 if (mAnswer4.getText() == mAnswer) {
                     mScore++;
-                    /*readNumber();
+                    readNumber();
                 }
-                else {*/}
-                if (mQuestionIndex < mQuestionsLength + 1) {
-                    mQuestionIndex++;
-                    updateQuestion(mQuestionIndex);
+                if (mQuestionIndex == mQuestionsLength - 1) {
+                    gameOver();
                 }
                 else {
-                    gameOver();
+                    mQuestionIndex++;
+                    updateQuestion(mQuestionIndex);
                 }
             }
         });
@@ -136,16 +131,14 @@ public class Math extends AppCompatActivity /*implements OnInitListener*/ {
         mAnswer = mQuestions.getCorrectAnswer(num);
     }
 
-    /*private void readNumber() {
+    private void readNumber() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Math.this);
         alertDialogBuilder.setMessage("Correct answer!").setCancelable(false).setPositiveButton("Listen", new DialogInterface.OnClickListener() {
-            @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 String words = mAnswer;
                 speakWords(words);
             }
         }).setNegativeButton("Next", new DialogInterface.OnClickListener() {
-            @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 updateQuestion(mQuestionIndex + 1);
                 mQuestionIndex++;
@@ -175,23 +168,21 @@ public class Math extends AppCompatActivity /*implements OnInitListener*/ {
         } else if (initStatus == TextToSpeech.ERROR) {
             Toast.makeText(this, "Cannot read this word", Toast.LENGTH_LONG).show();
         }
-    }*/
+    }
 
     private void gameOver() {
        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Math.this);
           alertDialogBuilder
                 .setMessage("Game Over! Your score is " + mScore + " points.")
                 .setCancelable(false)
-                .setPositiveButton("NEW GAME", new DialogInterface.OnClickListener() {
-                    @Override
+                .setPositiveButton(R.string.positive_button, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         startActivity(new Intent(getApplicationContext(), Math.class));
                     }
                 })
-                .setNegativeButton("EXIT",new DialogInterface.OnClickListener() {
-                    @Override
+                .setNegativeButton(R.string.negative_button,new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        finish();
+                        startActivity(new Intent(getApplicationContext(), Homepage.class));
                     }
                 });
 

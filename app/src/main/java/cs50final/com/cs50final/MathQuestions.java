@@ -3,10 +3,10 @@ package cs50final.com.cs50final;
 
 public class MathQuestions {
 
-    public String mQuestions[] = {
+    public String[] mQuestions = {
 
             "0+1", "2-0", "12/4", "8/2", "1*5"
-            };
+    };
 
 
     private String mChoices[][] = {
@@ -16,6 +16,11 @@ public class MathQuestions {
     };
 
     private String mCorrectAnswers[] = {"1", "2", "3", "4", "5"};
+
+    public int length() {
+        return 5;
+    }
+
 
     public String getQuestion(int a) {
         String question = mQuestions[a];
@@ -46,4 +51,5 @@ public class MathQuestions {
         String answer = mCorrectAnswers[a];
         return answer;
     }
+
 }

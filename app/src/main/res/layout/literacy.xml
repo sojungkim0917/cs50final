@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/answer1"
+        android:id="@+id/choice1"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="13dp"
@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/answer4"
+        android:id="@+id/choice4"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
@@ -30,7 +30,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/answer3"
+        android:id="@+id/choice3"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="9dp"
@@ -42,7 +42,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/answer2"
+        android:id="@+id/choice2"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"

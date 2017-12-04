@@ -33,7 +33,7 @@
         android:layout_weight="1"
         android:adjustViewBounds="true"
         android:contentDescription="@string/app_name"
-        android:onClick="goToMath"
+        android:onClick="goToLiteracy"
         android:padding="13dp"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"

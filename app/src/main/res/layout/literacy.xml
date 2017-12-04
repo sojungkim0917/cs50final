@@ -7,48 +7,45 @@
 
     <TextView
         android:id="@+id/question"
-        android:layout_width="368dp"
-        android:layout_height="171dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="354dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/answer1"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="379dp"
+        android:layout_height="113dp"
+        android:layout_marginTop="52dp"
+        android:gravity="center"
+        android:text="@+id/question"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/choice1"
-        android:layout_width="wrap_content"
+        android:id="@+id/choice4"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:text="Button"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="76dp" />
-
-    <Button
-        android:id="@+id/choice2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="110dp" />
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="291dp" />
 
     <Button
         android:id="@+id/choice3"
-        android:layout_width="wrap_content"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:text="Button"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="146dp" />
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="364dp" />
 
     <Button
-        android:id="@+id/choice4"
-        android:layout_width="wrap_content"
+        android:id="@+id/choice2"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:text="Button"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="187dp" />
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="436dp" />
+
+    <Button
+        android:id="@+id/choice1"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="208dp" />
 
 </android.support.constraint.ConstraintLayout>

@@ -23,7 +23,7 @@ public class LiteracyHome extends AppCompatActivity {
     }
 
     public void goToLiteracy(View v) {
-        Intent intent = new Intent(this, Homepage.class);
+        Intent intent = new Intent(this, Literacy.class);
         startActivity(intent);
     }
 }

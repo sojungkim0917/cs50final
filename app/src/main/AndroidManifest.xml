@@ -33,6 +33,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LiteracyHome" />
         </activity>
+        <activity android:name=".Literacy2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LiteracyHome" />
+        </activity>
         <activity android:name=".LiteracyHome">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

@@ -1,6 +1,7 @@
 package cs50final.com.cs50final;
 
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.os.Bundle;
@@ -38,6 +39,54 @@ public class Literacy extends AppCompatActivity {
         mButtonChoice4 = findViewById(R.id.choice4);
 
         updateQuestion();
+
+        mButtonChoice1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mButtonChoice1.getText().equals(mAnswer)){
+                    mScore = mScore + 1;
+                    updateQuestion();
+                } else {
+                    updateQuestion();
+                }
+            }
+        });
+
+        mButtonChoice2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mButtonChoice2.getText().equals(mAnswer)){
+                    mScore = mScore + 1;
+                    updateQuestion();
+                } else {
+                    updateQuestion();
+                }
+            }
+        });
+
+        mButtonChoice3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mButtonChoice3.getText().equals(mAnswer)){
+                    mScore = mScore + 1;
+                    updateQuestion();
+                } else {
+                    updateQuestion();
+                }
+            }
+        });
+
+        mButtonChoice4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mButtonChoice4.getText().equals(mAnswer)){
+                    mScore = mScore + 1;
+                    updateQuestion();
+                } else {
+                    updateQuestion();
+                }
+            }
+        });
 
     }
 
@@ -125,7 +174,7 @@ public class Literacy extends AppCompatActivity {
             }
         });
 
-        mQuestionNumber++;
+        mQuestionNumber ++;
 
     }
 }

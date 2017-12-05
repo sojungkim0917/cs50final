@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,43 +10,71 @@
         android:id="@+id/question"
         android:layout_width="379dp"
         android:layout_height="113dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="79dp"
+        android:fontFamily="casual"
         android:gravity="center"
         android:text="@+id/question"
+        android:textColor="@android:color/black"
+        android:textSize="48sp"
+        android:textStyle="bold"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@android:color/transparent" />
 
     <Button
         android:id="@+id/choice4"
-        android:layout_width="368dp"
+        android:layout_width="374dp"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="291dp" />
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/holo_blue_dark"
+        android:fontFamily="casual"
+        android:text="@+id/answer4"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/choice3"
-        android:layout_width="368dp"
+        android:layout_width="374dp"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="364dp" />
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/holo_blue_dark"
+        android:fontFamily="casual"
+        android:text="@+id/answer3"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/choice4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/choice2"
-        android:layout_width="368dp"
+        android:layout_width="374dp"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="436dp" />
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/holo_blue_dark"
+        android:fontFamily="casual"
+        android:text="@+id/answer2"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/choice3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/choice1"
-        android:layout_width="368dp"
+        android:layout_width="374dp"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="231dp" />
-
+        android:layout_marginBottom="9dp"
+        android:background="@android:color/holo_blue_dark"
+        android:fontFamily="casual"
+        android:text="@+id/answer1"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/choice2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -10,10 +10,6 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
-/**
- * Created by sishiryeety on 12/2/17.
- */
-
 public class Literacy extends AppCompatActivity {
 
     private TextView mQuestion;

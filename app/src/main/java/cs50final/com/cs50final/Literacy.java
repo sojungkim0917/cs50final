@@ -27,7 +27,8 @@ public class Literacy extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.abc_main);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.literacy);
 
         mQuestion = (TextView) findViewById(R.id.question);
 

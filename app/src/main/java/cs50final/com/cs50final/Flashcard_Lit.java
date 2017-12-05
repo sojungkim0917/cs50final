@@ -28,9 +28,8 @@ public class Flashcard_Lit extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.literacyhome);
+        setContentView(R.layout.flashcard_lit);
 
-        imageSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcher);
         imageSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcher);
 
         imageSwitcher.setFactory(new ViewSwitcher.ViewFactory() {

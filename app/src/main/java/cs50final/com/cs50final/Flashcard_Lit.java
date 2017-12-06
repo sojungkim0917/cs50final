@@ -53,7 +53,7 @@ public class Flashcard_Lit extends AppCompatActivity {
         b_prev = (Button) findViewById(R.id.b_prev);
         b_next = (Button) findViewById(R.id.b_next);
 
-        b_prev.setOnClickListener(new View.OnClickListener() {
+        b_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (i > 0) {
@@ -64,7 +64,7 @@ public class Flashcard_Lit extends AppCompatActivity {
             }
         });
 
-        b_next.setOnClickListener(new View.OnClickListener() {
+        b_prev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (i < images.length - 1) {

@@ -21,6 +21,9 @@ import com.firebase.client.ValueEventListener;
 
 public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitListener{
 
+    // THIS IS HARDER DIFFUCULTY QUIZ FOR LITERACY
+
+    // Define question field and buttons for page
     private TextView mQuestion;
 
     private Button mButtonChoice1;
@@ -31,21 +34,21 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
     private int mScore = 0;
     private int mQuestionNumber = 0;
     // Change the Length as you decide how many questions will be done
-    private int mQuestionLength = 6;
+    private int mQuestionLength = 20;
     private String mAnswer;
-
+    // Used for TTS system
     private TextToSpeech myTTS;
     private int MY_DATA_CHECK_CODE = 0;
-
+    // Define variables to use from Firebase
     private Firebase mQuestionRef, mchoice1Ref, mchoice2Ref, mchoice3Ref, mchoice4Ref, mAnswerRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.literacy);
-
+        // "Attaches" mQuestion variable name to textbox defined in layout page
         mQuestion = (TextView) findViewById(R.id.question);
-
+        // "Attaches" Button variables to buttons defined in layout page
         mButtonChoice1 = findViewById(R.id.choice1);
         mButtonChoice2 = findViewById(R.id.choice2);
         mButtonChoice3 = findViewById(R.id.choice3);
@@ -56,13 +59,15 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
         Intent checkTTSIntent = new Intent();
         checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
         startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);
-
+        // OnClick Listeners defined for all 4 buttons. Here it's advancing to next question
+        // Also adds to score if answered correctly
         mButtonChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (mQuestionNumber == mQuestionLength - 1) {
                     gameOver();
                 } else {
+                    // Checks if chosen answer is equivalent to defined answer in database
                     if (mButtonChoice1.getText().equals(mAnswer)) {
                         mScore++;
                         readWord();
@@ -73,7 +78,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
                 }
             }
         });
-
+        // Listener for Button 2
         mButtonChoice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,7 +95,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
                 }
             }
         });
-
+        // Listener for Button 3
         mButtonChoice3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,7 +112,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
                 }
             }
         });
-
+        // Listener for Button 4
         mButtonChoice4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,7 +130,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
             }
         });
     }
-
+    // updateQuestion function refined, pulling from FireBase database
     public void updateQuestion() {
         mQuestionRef = new Firebase("https://cs50final-7bf22.firebaseio.com/quiz2/"+ mQuestionNumber +"/question");
         mQuestionRef.addValueEventListener(new ValueEventListener() {
@@ -140,7 +145,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
 
             }
         });
-
+        // Button 1 answer choices defined. Coming from firebase
         mchoice1Ref= new Firebase("https://cs50final-7bf22.firebaseio.com/quiz2/"+ mQuestionNumber +"/choice1");
         mchoice1Ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -154,7 +159,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
 
             }
         });
-
+        // Button 2 answer choices defined. Coming from firebase
         mchoice2Ref= new Firebase("https://cs50final-7bf22.firebaseio.com/quiz2/"+ mQuestionNumber +"/choice2");
         mchoice2Ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -168,7 +173,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
 
             }
         });
-
+        // Button 3 answer choices defined. Coming from firebase
         mchoice3Ref= new Firebase("https://cs50final-7bf22.firebaseio.com/quiz2/"+ mQuestionNumber +"/choice3");
         mchoice3Ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -182,7 +187,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
 
             }
         });
-
+        // Button 4 answer choices defined. Coming from firebase
         mchoice4Ref= new Firebase("https://cs50final-7bf22.firebaseio.com/quiz2/"+ mQuestionNumber +"/choice4");
         mchoice4Ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -196,7 +201,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
 
             }
         });
-
+        // Answer is defined in firebase. Function brings answer from database and compared with chosen answer in quiz
         mAnswerRef = new Firebase("https://cs50final-7bf22.firebaseio.com/quiz2/"+ mQuestionNumber +"/answer");
         mAnswerRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -210,7 +215,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
             }
         });
     }
-
+    // TTS function that brings up alert if right answer is chosen. Will read answer and then advance question
     private void readWord() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Literacy2.this);
         alertDialogBuilder.setMessage("That was correct answer!").setCancelable(false)
@@ -231,7 +236,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
-
+    // TTS function con't
     private void speakWords(String speech) {
         myTTS.speak(speech, TextToSpeech.QUEUE_FLUSH, null);
     }

@@ -5,9 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.firebase.client.Firebase;
 
-/**
- * Created by sishiryeety on 12/5/17.
- */
+// Allows Android Application to use Firebase for Literacy quizzes
 
 public class App extends Application {
     @Override

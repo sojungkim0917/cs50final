@@ -48,12 +48,37 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Homepage" />
         </activity>
+        <activity android:name=".IntermediateMath">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Homepage" />
+        </activity>
         <activity android:name=".Flashcard_Lit">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LiteracyHome" />
         </activity>
         <activity android:name=".MathHome">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Homepage" />
+        </activity>
+        <activity android:name=".Literacy1Video">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Homepage" />
+        </activity>
+        <activity android:name=".Literacy2Video">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Homepage" />
+        </activity>
+        <activity android:name=".MathBeginnerVideo">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Homepage" />
+        </activity>
+        <activity android:name=".MathInterVideo">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Homepage" />

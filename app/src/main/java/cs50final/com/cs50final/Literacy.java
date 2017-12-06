@@ -258,6 +258,7 @@ public class Literacy extends AppCompatActivity implements TextToSpeech.OnInitLi
     }
 
     private void gameOver() {
+        if (mScore < 15) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Literacy.this);
         alertDialogBuilder
                 .setMessage("Game Over! Your score is " + mScore + " points.")
@@ -274,6 +275,24 @@ public class Literacy extends AppCompatActivity implements TextToSpeech.OnInitLi
                 });
 
         AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
+        alertDialog.show();}
+        else {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Literacy.this);
+            alertDialogBuilder
+                    .setMessage("Great job! Your score is " + mScore + " points.")
+                    .setCancelable(false)
+                    .setPositiveButton("Get the reward!", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            startActivity(new Intent(getApplicationContext(), Literacy1Video.class));
+                        }
+                    })
+                    .setNegativeButton(R.string.negative_button,new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            startActivity(new Intent(getApplicationContext(), Homepage.class));
+                        }
+                    });
+
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();}
+        }
     }
-}

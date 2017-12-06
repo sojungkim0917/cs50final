@@ -256,23 +256,37 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
         }
     }
 
+    // Gameover dialog shows the score when all 20 questions are answered
+    // User can either go back to main page to select literacy/math game or try again
     private void gameOver() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Literacy2.this);
-        alertDialogBuilder
-                .setMessage("Game Over! Your score is " + mScore + " points.")
-                .setCancelable(false)
-                .setPositiveButton(R.string.positive_button, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        startActivity(new Intent(getApplicationContext(), Literacy.class));
-                    }
-                })
-                .setNegativeButton(R.string.negative_button,new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        startActivity(new Intent(getApplicationContext(), Homepage.class));
-                    }
-                });
+        if (mScore < 15) {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Literacy2.this);
+            alertDialogBuilder.setMessage("Game Over! Your score is " + mScore + " points.").setCancelable(false).setPositiveButton(R.string.positive_button, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    startActivity(new Intent(getApplicationContext(), Literacy2.class));
+                }
+            }).setNegativeButton(R.string.negative_button, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    startActivity(new Intent(getApplicationContext(), Homepage.class));
+                }
+            });
 
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+        } else {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Literacy2.this);
+            alertDialogBuilder.setMessage("Great job! Your score is " + mScore + " points.").setCancelable(false).setPositiveButton("Get the reward!", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    startActivity(new Intent(getApplicationContext(), Literacy2Video.class));
+                }
+            }).setNegativeButton(R.string.negative_button, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    startActivity(new Intent(getApplicationContext(), Homepage.class));
+                }
+            });
+
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+        }
     }
 }

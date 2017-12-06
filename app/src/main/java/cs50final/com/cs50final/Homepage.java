@@ -23,7 +23,7 @@ public class Homepage extends ABCMain {
     }
 
     public void goToMath(View v) {
-        Intent intent = new Intent(this, BeginnerMath.class);
+        Intent intent = new Intent(this, MathHome.class);
         startActivity(intent);
     }
 

@@ -16,7 +16,7 @@
         android:adjustViewBounds="true"
         android:contentDescription="@string/app_name"
         android:onClick="goToFlashcard_Lit"
-        android:padding="13dp"
+        android:padding="1dp"
         android:scaleType="fitCenter"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,43 +25,35 @@
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/flashcards" />
 
-    <ImageButton
-        android:id="@+id/b_home"
-        android:layout_width="72dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="247dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="272dp"
-        android:layout_marginTop="16dp"
-        android:onClick="goToABCMain"
-        android:padding="1dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/learnplay1" />
-
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:layout_marginEnd="28dp"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
         android:onClick="goToLiteracy"
-        android:text="Quiz1"
+        android:text="Level1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button3" />
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginTop="40dp"
         android:onClick="goToLiteracy2"
-        android:text="Quiz2"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/b_flashcards" />
+        android:text="Level2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b_flashcards"
+        app:layout_constraintVertical_bias="1.0"
+        android:layout_marginRight="28dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"

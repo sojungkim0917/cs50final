@@ -31,7 +31,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
     private int mScore = 0;
     private int mQuestionNumber = 0;
     // Change the Length as you decide how many questions will be done
-    private int mQuestionLength = 5;
+    private int mQuestionLength = 6;
     private String mAnswer;
 
     private TextToSpeech myTTS;

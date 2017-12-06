@@ -2,21 +2,19 @@ package cs50final.com.cs50final;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.support.v7.app.AlertDialog;
 import java.lang.String;
-import java.util.Locale;
-
 import android.content.DialogInterface;
-import android.widget.Toast;
 
 
-public class Math extends AppCompatActivity implements TextToSpeech.OnInitListener {
+public class Math extends AppCompatActivity {
 
+
+    // Initialize buttons, textviews, and scores
     private Button mAnswer1;
     private Button mAnswer2;
     private Button mAnswer3;
@@ -31,14 +29,13 @@ public class Math extends AppCompatActivity implements TextToSpeech.OnInitListen
     private int mQuestionIndex = 0;
     private int mQuestionsLength = mQuestions.length();
 
-    private TextToSpeech myTTS;
-    private int MY_DATA_CHECK_CODE = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.math);
 
+        // Set texts of buttons and textview
         mAnswer1 = findViewById(R.id.answer1);
         mAnswer2 = findViewById(R.id.answer2);
         mAnswer3 = findViewById(R.id.answer3);
@@ -46,22 +43,22 @@ public class Math extends AppCompatActivity implements TextToSpeech.OnInitListen
 
         mQuestion = findViewById(R.id.question);
 
+        // Initialize first question
         updateQuestion(mQuestionIndex);
 
-        Intent checkTTSIntent = new Intent();
-        checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-        startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);
-
+        // Upon clicking answer, if at the end of question set, game over dialog pops up
+        // If not, if answer is correct, score is added but shown at the end
+        // If answer is incorrect, does not acknowledge that fact but just proceed to next question
         mAnswer1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mAnswer1.getText() == mAnswer) {
-                    mScore++;
-                    readNumber();
-                }
                 if (mQuestionIndex == mQuestionsLength - 1) {
                     gameOver();
-                    } else {
+                    }
+                else {
+                    if (mAnswer1.getText() == mAnswer) {
+                        mScore++;
+                    }
                     mQuestionIndex++;
                     updateQuestion(mQuestionIndex);
                 }
@@ -71,14 +68,13 @@ public class Math extends AppCompatActivity implements TextToSpeech.OnInitListen
         mAnswer2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            if (mAnswer2.getText() == mAnswer) {
-                mScore++;
-                readNumber();
-            }
             if (mQuestionIndex == mQuestionsLength - 1) {
                 gameOver();
             }
             else {
+                if (mAnswer2.getText() == mAnswer) {
+                    mScore++;
+                }
                 mQuestionIndex++;
                 updateQuestion(mQuestionIndex);
             }
@@ -88,14 +84,13 @@ public class Math extends AppCompatActivity implements TextToSpeech.OnInitListen
         mAnswer3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mAnswer3.getText() == mAnswer) {
-                    mScore++;
-                    readNumber();
-                }
                 if (mQuestionIndex == mQuestionsLength - 1) {
                     gameOver();
                 }
                 else {
+                    if (mAnswer3.getText() == mAnswer) {
+                        mScore++;
+                    }
                     mQuestionIndex++;
                     updateQuestion(mQuestionIndex);
                 }
@@ -106,14 +101,13 @@ public class Math extends AppCompatActivity implements TextToSpeech.OnInitListen
         mAnswer4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mAnswer4.getText() == mAnswer) {
-                    mScore++;
-                    readNumber();
-                }
                 if (mQuestionIndex == mQuestionsLength - 1) {
                     gameOver();
                 }
                 else {
+                    if (mAnswer4.getText() == mAnswer) {
+                        mScore++;
+                    }
                     mQuestionIndex++;
                     updateQuestion(mQuestionIndex);
                 }
@@ -121,6 +115,7 @@ public class Math extends AppCompatActivity implements TextToSpeech.OnInitListen
         });
     }
 
+    // Function to proceed to next question
     private void updateQuestion(int num) {
         mQuestion.setText(mQuestions.getQuestion(num));
         mAnswer1.setText(mQuestions.getChoice1(num));
@@ -129,47 +124,12 @@ public class Math extends AppCompatActivity implements TextToSpeech.OnInitListen
         mAnswer4.setText(mQuestions.getChoice4(num));
 
         mAnswer = mQuestions.getCorrectAnswer(num);
+
     }
 
-    private void readNumber() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Math.this);
-        alertDialogBuilder.setMessage("Correct answer!").setCancelable(false).setPositiveButton("Listen", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogInterface, int i) {
-                String words = mAnswer;
-                speakWords(words);
-            }
-        }).setNegativeButton("Next", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogInterface, int i) {
-                updateQuestion(mQuestionIndex + 1);
-                mQuestionIndex++;
-            }
-        });
-    }
 
-    private void speakWords(String speech) {
-        myTTS.speak(speech, TextToSpeech.QUEUE_FLUSH, null);
-    }
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == MY_DATA_CHECK_CODE) {
-            if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
-                myTTS = new TextToSpeech(this, this);
-            } else {
-                Intent installTTSIntent = new Intent();
-                installTTSIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
-                startActivity(installTTSIntent);
-            }
-        }
-    }
-
-    public void onInit(int initStatus) {
-        if (initStatus == TextToSpeech.SUCCESS) {
-            if (myTTS.isLanguageAvailable(Locale.US) == TextToSpeech.LANG_AVAILABLE) myTTS.setLanguage(Locale.US);
-        } else if (initStatus == TextToSpeech.ERROR) {
-            Toast.makeText(this, "Cannot read this word", Toast.LENGTH_LONG).show();
-        }
-    }
-
+    // Gameover dialog shows the score when all 20 questions are answered
+    // User can either go back to main page to select literacy/math game or try again
     private void gameOver() {
        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Math.this);
           alertDialogBuilder

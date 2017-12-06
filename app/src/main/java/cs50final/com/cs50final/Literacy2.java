@@ -5,13 +5,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.os.Bundle;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.speech.tts.TextToSpeech;
+import android.support.v7.app.AlertDialog;
+import android.widget.Toast;
+
+import java.lang.String;
+import java.util.Locale;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
-public class Literacy2 extends AppCompatActivity {
+public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitListener{
 
     private TextView mQuestion;
 
@@ -22,7 +30,12 @@ public class Literacy2 extends AppCompatActivity {
 
     private int mScore = 0;
     private int mQuestionNumber = 0;
+    // Change the Length as you decide how many questions will be done
+    private int mQuestionLength = 5;
     private String mAnswer;
+
+    private TextToSpeech myTTS;
+    private int MY_DATA_CHECK_CODE = 0;
 
     private Firebase mQuestionRef, mchoice1Ref, mchoice2Ref, mchoice3Ref, mchoice4Ref, mAnswerRef;
 
@@ -40,14 +53,23 @@ public class Literacy2 extends AppCompatActivity {
 
         updateQuestion();
 
+        Intent checkTTSIntent = new Intent();
+        checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+        startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);
+
         mButtonChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mButtonChoice1.getText().equals(mAnswer)){
-                    mScore = mScore + 1;
-                    updateQuestion();
+                if (mQuestionNumber == mQuestionLength - 1) {
+                    gameOver();
                 } else {
-                    updateQuestion();
+                    if (mButtonChoice1.getText().equals(mAnswer)) {
+                        mScore++;
+                        readWord();
+                    } else {
+                        mQuestionNumber++;
+                        updateQuestion();
+                    }
                 }
             }
         });
@@ -55,11 +77,16 @@ public class Literacy2 extends AppCompatActivity {
         mButtonChoice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mButtonChoice2.getText().equals(mAnswer)){
-                    mScore = mScore + 1;
-                    updateQuestion();
+                if (mQuestionNumber == mQuestionLength - 1) {
+                    gameOver();
                 } else {
-                    updateQuestion();
+                    if (mButtonChoice2.getText().equals(mAnswer)) {
+                        mScore++;
+                        readWord();
+                    } else {
+                        mQuestionNumber++;
+                        updateQuestion();
+                    }
                 }
             }
         });
@@ -67,11 +94,16 @@ public class Literacy2 extends AppCompatActivity {
         mButtonChoice3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mButtonChoice3.getText().equals(mAnswer)){
-                    mScore = mScore + 1;
-                    updateQuestion();
+                if (mQuestionNumber == mQuestionLength - 1) {
+                    gameOver();
                 } else {
-                    updateQuestion();
+                    if (mButtonChoice3.getText().equals(mAnswer)) {
+                        mScore++;
+                        readWord();
+                    } else {
+                        mQuestionNumber++;
+                        updateQuestion();
+                    }
                 }
             }
         });
@@ -79,15 +111,19 @@ public class Literacy2 extends AppCompatActivity {
         mButtonChoice4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mButtonChoice4.getText().equals(mAnswer)){
-                    mScore = mScore + 1;
-                    updateQuestion();
+                if (mQuestionNumber == mQuestionLength - 1) {
+                    gameOver();
                 } else {
-                    updateQuestion();
+                    if (mButtonChoice4.getText().equals(mAnswer)) {
+                        mScore++;
+                        readWord();
+                    } else {
+                        mQuestionNumber++;
+                        updateQuestion();
+                    }
                 }
             }
         });
-
     }
 
     public void updateQuestion() {
@@ -173,8 +209,70 @@ public class Literacy2 extends AppCompatActivity {
 
             }
         });
+    }
 
-        mQuestionNumber ++;
+    private void readWord() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Literacy2.this);
+        alertDialogBuilder.setMessage("That was correct answer!").setCancelable(false)
+                .setPositiveButton("Listen and move to next", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String words = mAnswer;
+                        speakWords(words);
+                        mQuestionNumber++;
+                        updateQuestion();
+                    }
+                }).setNegativeButton("Next", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int i){
+                mQuestionNumber++;
+                updateQuestion();
+            }
+        });
 
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    private void speakWords(String speech) {
+        myTTS.speak(speech, TextToSpeech.QUEUE_FLUSH, null);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == MY_DATA_CHECK_CODE) {
+            if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
+                myTTS = new TextToSpeech(this, this);
+            } else {
+                Intent installTTSIntent = new Intent();
+                installTTSIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                startActivity(installTTSIntent);
+            }
+        }
+    }
+
+    public void onInit(int initStatus) {
+        if (initStatus == TextToSpeech.SUCCESS) {
+            if (myTTS.isLanguageAvailable(Locale.US) == TextToSpeech.LANG_AVAILABLE) myTTS.setLanguage(Locale.US);
+        } else if (initStatus == TextToSpeech.ERROR) {
+            Toast.makeText(this, "Cannot read this word", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void gameOver() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Literacy2.this);
+        alertDialogBuilder
+                .setMessage("Game Over! Your score is " + mScore + " points.")
+                .setCancelable(false)
+                .setPositiveButton(R.string.positive_button, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        startActivity(new Intent(getApplicationContext(), Literacy.class));
+                    }
+                })
+                .setNegativeButton(R.string.negative_button,new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        startActivity(new Intent(getApplicationContext(), Homepage.class));
+                    }
+                });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 }

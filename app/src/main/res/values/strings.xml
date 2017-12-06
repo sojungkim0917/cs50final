@@ -1,6 +1,7 @@
 <resources>
 
     <string name="app_name">ABC123</string>
-    <string name="positive_button">New Game</string>
+    <string name="positive_button">Try Again</string>
     <string name="negative_button">Go Back to Main Page</string>
+    <string name="question_number">There are 20 questions!</string>
 </resources>

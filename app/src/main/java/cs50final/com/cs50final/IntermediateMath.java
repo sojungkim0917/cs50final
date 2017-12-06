@@ -11,7 +11,7 @@ import java.lang.String;
 import android.content.DialogInterface;
 
 
-public class Math extends AppCompatActivity {
+public class IntermediateMath extends AppCompatActivity {
 
 
     // Initialize buttons, textviews, and scores
@@ -22,7 +22,7 @@ public class Math extends AppCompatActivity {
 
     private TextView mQuestion;
 
-    public MathQuestions mQuestions = new MathQuestions();
+    public IntermediateMathQuestions mQuestions = new IntermediateMathQuestions();
 
     private String mAnswer;
     private int mScore = 0;
@@ -54,7 +54,7 @@ public class Math extends AppCompatActivity {
             public void onClick(View view) {
                 if (mQuestionIndex == mQuestionsLength - 1) {
                     gameOver();
-                    }
+                }
                 else {
                     if (mAnswer1.getText() == mAnswer) {
                         mScore++;
@@ -68,18 +68,18 @@ public class Math extends AppCompatActivity {
         mAnswer2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            if (mQuestionIndex == mQuestionsLength - 1) {
-                gameOver();
-            }
-            else {
-                if (mAnswer2.getText() == mAnswer) {
-                    mScore++;
+                if (mQuestionIndex == mQuestionsLength - 1) {
+                    gameOver();
                 }
-                mQuestionIndex++;
-                updateQuestion(mQuestionIndex);
+                else {
+                    if (mAnswer2.getText() == mAnswer) {
+                        mScore++;
+                    }
+                    mQuestionIndex++;
+                    updateQuestion(mQuestionIndex);
+                }
             }
-        }
-    });
+        });
 
         mAnswer3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,13 +131,13 @@ public class Math extends AppCompatActivity {
     // Gameover dialog shows the score when all 20 questions are answered
     // User can either go back to main page to select literacy/math game or try again
     private void gameOver() {
-       AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Math.this);
-          alertDialogBuilder
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(IntermediateMath.this);
+        alertDialogBuilder
                 .setMessage("Game Over! Your score is " + mScore + " points.")
                 .setCancelable(false)
                 .setPositiveButton(R.string.positive_button, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        startActivity(new Intent(getApplicationContext(), Math.class));
+                        startActivity(new Intent(getApplicationContext(), IntermediateMath.class));
                     }
                 })
                 .setNegativeButton(R.string.negative_button,new DialogInterface.OnClickListener() {

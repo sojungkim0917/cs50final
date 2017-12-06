@@ -127,7 +127,7 @@ public class Literacy extends AppCompatActivity implements TextToSpeech.OnInitLi
     }
 
     public void updateQuestion() {
-        mQuestionRef = new Firebase("https://cs50final-7bf22.firebaseio.com/"+ mQuestionNumber +"/question");
+        mQuestionRef = new Firebase("https://cs50final-7bf22.firebaseio.com/easy/"+ mQuestionNumber +"/question");
         mQuestionRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -141,7 +141,7 @@ public class Literacy extends AppCompatActivity implements TextToSpeech.OnInitLi
             }
         });
 
-        mchoice1Ref= new Firebase("https://cs50final-7bf22.firebaseio.com/"+ mQuestionNumber +"/choice1");
+        mchoice1Ref= new Firebase("https://cs50final-7bf22.firebaseio.com/easy/"+ mQuestionNumber +"/choice1");
         mchoice1Ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -155,7 +155,7 @@ public class Literacy extends AppCompatActivity implements TextToSpeech.OnInitLi
             }
         });
 
-        mchoice2Ref= new Firebase("https://cs50final-7bf22.firebaseio.com/"+ mQuestionNumber +"/choice2");
+        mchoice2Ref= new Firebase("https://cs50final-7bf22.firebaseio.com/easy/"+ mQuestionNumber +"/choice2");
         mchoice2Ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -169,7 +169,7 @@ public class Literacy extends AppCompatActivity implements TextToSpeech.OnInitLi
             }
         });
 
-        mchoice3Ref= new Firebase("https://cs50final-7bf22.firebaseio.com/"+ mQuestionNumber +"/choice3");
+        mchoice3Ref= new Firebase("https://cs50final-7bf22.firebaseio.com/easy/"+ mQuestionNumber +"/choice3");
         mchoice3Ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -183,7 +183,7 @@ public class Literacy extends AppCompatActivity implements TextToSpeech.OnInitLi
             }
         });
 
-        mchoice4Ref= new Firebase("https://cs50final-7bf22.firebaseio.com/"+ mQuestionNumber +"/choice4");
+        mchoice4Ref= new Firebase("https://cs50final-7bf22.firebaseio.com/easy/"+ mQuestionNumber +"/choice4");
         mchoice4Ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -197,7 +197,7 @@ public class Literacy extends AppCompatActivity implements TextToSpeech.OnInitLi
             }
         });
 
-        mAnswerRef = new Firebase("https://cs50final-7bf22.firebaseio.com/"+ mQuestionNumber +"/answer");
+        mAnswerRef = new Firebase("https://cs50final-7bf22.firebaseio.com/easy/"+ mQuestionNumber +"/answer");
         mAnswerRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

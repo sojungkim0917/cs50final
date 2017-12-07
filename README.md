@@ -13,11 +13,10 @@ Overall test of app through the emulator
 
 DESIGN.me: Sishir for firebase, quiz choice; Casey for android studio, flashcards,; SoJung for text to speech, video(?) popup button
 Video presentation:
-"Hello this is Casey, Sishir, and SoJung. We are developers of ABC123. We wanted to make an app for children age under 10 to expand literacy and practice math problems. Literacy and math are bound together and are essential and very basic parts of our lives. It would be great if children can learn these basic skills fun and happily."
+"Hello this is the CS50 final project, the android app “ABC123” developed by Casey, Sishir, and SoJung. We wanted to create an app for young children (under 10 years of age) to expand on and practice their literacy and math skills. Literacy and math are the foundations for everyone’s education and are essential to our quest for knowledge. ABC123 provides a means in the technology age of education for children to get excited about learning and have a little fun while doing it."
+"The app is colorful and vivid to attract the eye of the child and increase particiapation and desire to play. The user interface is simplistic and straightforward with minimal complexity in navigation. The main page after launch has two buttons allowing the child to choose their desired subject, ABC (for Literacy) or 123 (for Math)."
+"Literacy has flashcards of the alphabet and 2 levels of testing (level 1 and level 2). In the literacy quizzes, if you get a correct answer you will be given the option to speak the word from a pop up display. For all quizzes, scores will be kept. When you reach a certain threshold of accuracy, a "reward" is given! Studying is not fun, but there are numerous ways to make it more interesting and pleasant. This app is one way for that. Hope you enjoy!"
 
-"The app is colorful and vivid for children to be attracted. It has very easy interface - the main page has two choices leading to ABC and 123, and each button leads to either literacy or math problems. In literacy quiz, if you get a correct answer, a button to speak the word will be displayed. For all quizzes, scores will be counted and upon hitting certain points, a "reward" is given!"
-
-"Studying is not fun, but there are numerous ways to make it interesting and fun. This app would be one of the ways for that. Hope you enjoy!"
 
 NOTES
 

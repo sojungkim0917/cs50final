@@ -13,23 +13,28 @@ import android.widget.ViewSwitcher;
 
 public class Flashcard_Lit extends AppCompatActivity {
 
+    /*define buttons*/
     Button b_prev, b_next;
 
+    /*define imageswitcher*/
     ImageSwitcher imageSwitcher;
 
+    /* create array of images to be loaded into the image switcher*/
     Integer[] images = {R.drawable.a_1, R.drawable.b_1, R.drawable.c_1, R.drawable.d_1, R.drawable.e_1, R.drawable.f_1,
             R.drawable.g_1, R.drawable.h_1, R.drawable.i_1, R.drawable.j_1, R.drawable.k_1, R.drawable.l_1,
             R.drawable.m_1, R.drawable.n_1, R.drawable.o_1, R.drawable.p_1, R.drawable.q_1, R.drawable.r_1,
             R.drawable.s_1, R.drawable.t_1, R.drawable.u_1, R.drawable.v_1, R.drawable.w_1, R.drawable.x_1,
             R.drawable.y_1, R.drawable.z_1};
 
-    int i = 0;
+    /*start for flashcard, -1 so it begins on the letter A (i0)*/
+    int i = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flashcard_lit);
 
+        //set image in ImageSwitcher by using findViewbyID method
         imageSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcher);
 
         imageSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
@@ -44,9 +49,11 @@ public class Flashcard_Lit extends AppCompatActivity {
             }
         });
 
+        /* add object of animation to imageswitcher by using AnimationUtils class*/
         Animation in = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.in);
         Animation out = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.out);
 
+        /* set the Animation on ImageSwitcher */
         imageSwitcher.setInAnimation(in);
         imageSwitcher.setOutAnimation(out);
 

@@ -21,4 +21,4 @@ Video presentation:
 
 NOTES
 
-Have found Nexus S API 26/27 to be far more stable than Pixel
+Have found Nexus S API 23 to be far more stable than Pixel

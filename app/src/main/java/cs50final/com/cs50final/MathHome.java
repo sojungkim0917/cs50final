@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-/**
- * Created by sojungkim on 2017. 12. 5..
- */
-
 public class MathHome extends AppCompatActivity {
 
     private View v;

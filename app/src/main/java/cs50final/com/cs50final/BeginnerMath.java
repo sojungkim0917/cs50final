@@ -48,7 +48,7 @@ public class BeginnerMath extends AppCompatActivity {
 
         // Upon clicking answer, if at the end of question set, game over dialog pops up
         // If not, if answer is correct, score is added but shown at the end
-        // If answer is incorrect, does not acknowledge that fact but just proceed to next question
+        // If answer is incorrect, does not acknowledge the user but just proceed to next question
         mAnswer1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -128,8 +128,8 @@ public class BeginnerMath extends AppCompatActivity {
     }
 
 
-    // Gameover dialog shows the score when all 20 questions are answered
-    // User can either go back to main page to select literacy/math game or try again
+    // If user scored higher than 15, dialog pops up and leads to either "reward" or main page
+    // If user scored lower than 15, user can go back to main page or retry
     private void gameOver() {
         if (mScore < 15) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(BeginnerMath.this);

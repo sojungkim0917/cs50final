@@ -1,17 +1,9 @@
 package cs50final.com.cs50final;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.res.Configuration;
 import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnPreparedListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -25,22 +17,22 @@ public class MathBeginnerVideo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mathbeginnervideo);
-        // Find your VideoView in your video_main.xml layout
+
         mathBegVideo = (VideoView) findViewById(R.id.videoView2);
 
         if (mediaControls == null) {
-            // create an object of media controller class
+            // Create media controller
             mediaControls = new MediaController(MathBeginnerVideo.this);
             mediaControls.setAnchorView(mathBegVideo);
         }
-        // set the media controller for video view
+        // Set media controller
         mathBegVideo.setMediaController(mediaControls);
-        // set the uri for the video view
+        // Set URI for video
         mathBegVideo.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.laluna));
-        // start a video
+        // Start a video
         mathBegVideo.start();
 
-        // implement on completion listener on video view
+        // Implement on completion listener on video view
         mathBegVideo.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {

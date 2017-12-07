@@ -1,20 +1,14 @@
 package cs50final.com.cs50final;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.res.Configuration;
 import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnPreparedListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
+
+// Reward for 15+ in literacy level 2
 
 public class Literacy2Video extends AppCompatActivity {
 
@@ -25,22 +19,22 @@ public class Literacy2Video extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.literacy2video);
-        // Find your VideoView in your video_main.xml layout
+
         literacy2Video = (VideoView) findViewById(R.id.videoView4);
 
         if (mediaControls == null) {
-            // create an object of media controller class
+            // Create media controller
             mediaControls = new MediaController(Literacy2Video.this);
             mediaControls.setAnchorView(literacy2Video);
         }
-        // set the media controller for video view
+        // Set media controller
         literacy2Video.setMediaController(mediaControls);
-        // set the uri for the video view
+        // Set URI for video
         literacy2Video.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.toystory));
-        // start a video
+        // Start a video
         literacy2Video.start();
 
-        // implement on completion listener on video view
+        // Implement on completion listener on video view
         literacy2Video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {

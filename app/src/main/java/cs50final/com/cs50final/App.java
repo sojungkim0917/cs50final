@@ -1,7 +1,6 @@
 package cs50final.com.cs50final;
 
 import android.app.Application;
-import android.support.v7.app.AppCompatActivity;
 
 import com.firebase.client.Firebase;
 

@@ -7,24 +7,25 @@
     android:background="@drawable/mathhomebackground"
     tools:context="cs50final.com.cs50final.ABCMain">
 
-    <Button
+    <ImageButton
         android:id="@+id/button2"
-        android:layout_width="105dp"
-        android:layout_height="61dp"
+        android:layout_width="106dp"
+        android:layout_height="88dp"
         android:layout_marginBottom="47dp"
         android:layout_marginStart="40dp"
-        android:background="?attr/colorButtonNormal"
+        android:background="@drawable/level_1"
         android:onClick="goToBeginner"
         android:text="Beginner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/guideline" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button3"
-        android:layout_width="131dp"
-        android:layout_height="65dp"
+        android:layout_width="106dp"
+        android:layout_height="88dp"
         android:layout_marginBottom="47dp"
-        android:layout_marginEnd="54dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/level_2"
         android:onClick="goToIntermediate"
         android:text="Intermediate"
         app:layout_constraintBottom_toBottomOf="parent"

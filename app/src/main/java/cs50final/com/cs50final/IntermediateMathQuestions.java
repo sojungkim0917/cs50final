@@ -32,7 +32,7 @@ public class IntermediateMathQuestions {
         return 20;
     }
 
-
+    // Getter for questions, choices, and answers
     public String getQuestion(int a) {
         String question = mQuestions[a];
         return question;

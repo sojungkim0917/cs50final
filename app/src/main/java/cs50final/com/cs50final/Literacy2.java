@@ -21,7 +21,7 @@ import com.firebase.client.ValueEventListener;
 
 public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitListener{
 
-    // THIS IS HARDER DIFFUCULTY QUIZ FOR LITERACY
+    // THIS IS HARDER DIFFICULTY QUIZ FOR LITERACY
 
     // Define question field and buttons for page
     private TextView mQuestion;
@@ -36,11 +36,12 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
     // Change the Length as you decide how many questions will be done
     private int mQuestionLength = 20;
     private String mAnswer;
+    private String mCompAnswer;
     // Used for TTS system
     private TextToSpeech myTTS;
     private int MY_DATA_CHECK_CODE = 0;
     // Define variables to use from Firebase
-    private Firebase mQuestionRef, mchoice1Ref, mchoice2Ref, mchoice3Ref, mchoice4Ref, mAnswerRef;
+    private Firebase mQuestionRef, mchoice1Ref, mchoice2Ref, mchoice3Ref, mchoice4Ref, mAnswerRef, mCompAnswerRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -193,7 +194,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String choice = dataSnapshot.getValue(String.class);
-                mButtonChoice1.setText(choice);
+                mButtonChoice4.setText(choice);
             }
 
             @Override
@@ -214,6 +215,19 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
 
             }
         });
+        mCompAnswerRef = new Firebase("https://cs50final-7bf22.firebaseio.com/quiz2/"+ mQuestionNumber +"/companswer");
+        mCompAnswerRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                mCompAnswer = dataSnapshot.getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
     }
     // TTS function that brings up alert if right answer is chosen. Will read answer and then advance question
     private void readWord() {
@@ -221,7 +235,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
         alertDialogBuilder.setMessage("That was correct answer!").setCancelable(false)
                 .setPositiveButton("Listen and move to next", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String words = mAnswer;
+                        String words = mCompAnswer;
                         speakWords(words);
                         mQuestionNumber++;
                         updateQuestion();

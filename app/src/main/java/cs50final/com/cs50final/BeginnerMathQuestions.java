@@ -31,7 +31,7 @@ public class BeginnerMathQuestions {
         return 20;
     }
 
-
+    // Getters for questions, choices, and answers
     public String getQuestion(int a) {
         String question = mQuestions[a];
         return question;

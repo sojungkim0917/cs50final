@@ -133,7 +133,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
     }
     // updateQuestion function refined, pulling from FireBase database
     public void updateQuestion() {
-        mQuestionRef = new Firebase("https://cs50final-7bf22.firebaseio.com/quiz2/"+ mQuestionNumber +"/question");
+        mQuestionRef = new Firebase("https://cs50-ab.firebaseio.com/quiz2/"+ mQuestionNumber +"/question");
         mQuestionRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -147,7 +147,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
             }
         });
         // Button 1 answer choices defined. Coming from firebase
-        mchoice1Ref= new Firebase("https://cs50final-7bf22.firebaseio.com/quiz2/"+ mQuestionNumber +"/choice1");
+        mchoice1Ref= new Firebase("https://cs50-ab.firebaseio.com/quiz2/"+ mQuestionNumber +"/choice1");
         mchoice1Ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -161,7 +161,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
             }
         });
         // Button 2 answer choices defined. Coming from firebase
-        mchoice2Ref= new Firebase("https://cs50final-7bf22.firebaseio.com/quiz2/"+ mQuestionNumber +"/choice2");
+        mchoice2Ref= new Firebase("https://cs50-ab.firebaseio.com/quiz2/"+ mQuestionNumber +"/choice2");
         mchoice2Ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -175,7 +175,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
             }
         });
         // Button 3 answer choices defined. Coming from firebase
-        mchoice3Ref= new Firebase("https://cs50final-7bf22.firebaseio.com/quiz2/"+ mQuestionNumber +"/choice3");
+        mchoice3Ref= new Firebase("https://cs50-ab.firebaseio.com/quiz2/"+ mQuestionNumber +"/choice3");
         mchoice3Ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -189,7 +189,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
             }
         });
         // Button 4 answer choices defined. Coming from firebase
-        mchoice4Ref= new Firebase("https://cs50final-7bf22.firebaseio.com/quiz2/"+ mQuestionNumber +"/choice4");
+        mchoice4Ref= new Firebase("https://cs50-ab.firebaseio.com/quiz2/"+ mQuestionNumber +"/choice4");
         mchoice4Ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -203,7 +203,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
             }
         });
         // Answer is defined in firebase. Function brings answer from database and compared with chosen answer in quiz
-        mAnswerRef = new Firebase("https://cs50final-7bf22.firebaseio.com/quiz2/"+ mQuestionNumber +"/answer");
+        mAnswerRef = new Firebase("https://cs50-ab.firebaseio.com/quiz2/"+ mQuestionNumber +"/answer");
         mAnswerRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -215,7 +215,7 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
 
             }
         });
-        mCompAnswerRef = new Firebase("https://cs50final-7bf22.firebaseio.com/quiz2/"+ mQuestionNumber +"/companswer");
+        mCompAnswerRef = new Firebase("https://cs50-ab.firebaseio.com/quiz2/"+ mQuestionNumber +"/companswer");
         mCompAnswerRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

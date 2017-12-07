@@ -17,6 +17,7 @@ public class LiteracyHome extends AppCompatActivity {
         setContentView(R.layout.literacyhome);
     }
 
+    /*call actions for XML definition*/
     public void goToFlashcard_Lit(View v) {
         Intent intent = new Intent(this, Flashcard_Lit.class);
         startActivity(intent);

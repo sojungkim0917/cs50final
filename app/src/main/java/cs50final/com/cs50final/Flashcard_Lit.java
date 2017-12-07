@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.ViewSwitcher;
@@ -17,10 +18,10 @@ public class Flashcard_Lit extends AppCompatActivity {
     Button b_prev, b_next;
 
     /*define imageswitcher*/
-    ImageSwitcher imageSwitcher;
+    private ImageSwitcher imageSwitcher;
 
     /* create array of images to be loaded into the image switcher*/
-    Integer[] images = {R.drawable.a_1, R.drawable.b_1, R.drawable.c_1, R.drawable.d_1, R.drawable.e_1, R.drawable.f_1,
+    private static final Integer[] images = {R.drawable.a_1, R.drawable.b_1, R.drawable.c_1, R.drawable.d_1, R.drawable.e_1, R.drawable.f_1,
             R.drawable.g_1, R.drawable.h_1, R.drawable.i_1, R.drawable.j_1, R.drawable.k_1, R.drawable.l_1,
             R.drawable.m_1, R.drawable.n_1, R.drawable.o_1, R.drawable.p_1, R.drawable.q_1, R.drawable.r_1,
             R.drawable.s_1, R.drawable.t_1, R.drawable.u_1, R.drawable.v_1, R.drawable.w_1, R.drawable.x_1,

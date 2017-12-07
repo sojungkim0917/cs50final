@@ -34,10 +34,14 @@ public class Flashcard_Lit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flashcard_lit);
 
-        //set image in ImageSwitcher by using findViewbyID method
+        /*set image in ImageSwitcher by using findViewbyID method*/
         imageSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcher);
 
+
+        /*setFactory Sets the factory used to create the views between which the ViewSwitcher will flip*/
         imageSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+
+            /*set parameters for the ImageSwitcher*/
             @Override
             public View makeView() {
                 ImageView imageView = new ImageView(getApplicationContext());
@@ -57,6 +61,7 @@ public class Flashcard_Lit extends AppCompatActivity {
         imageSwitcher.setInAnimation(in);
         imageSwitcher.setOutAnimation(out);
 
+        /*define button actions when clicked*/
         b_prev = (Button) findViewById(R.id.b_prev);
         b_next = (Button) findViewById(R.id.b_next);
 

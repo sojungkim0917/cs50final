@@ -6,11 +6,12 @@ DESIGN.md file for ABC123 Android Application
 `
 
 GitHub Project Link: https://github.com/sojungkim0917/cs50final
-Android Studio User guide was used to assist in navigationa nd creation of the app https://developer.android.com/studio/intro/index.html
+Android Studio User guide was used to assist in navigationa and creation of the app https://developer.android.com/studio/intro/index.html
 
 ABCMain
 
-    This is the main landing page when the app is opened to enter the app through the "Play" button.
+    This is the main landing page when the app is opened to enter the app through the "Play" button. The layout for this page is
+    defined by abc_main.xml in the /app/src/main/res/layout folder.
 
 BeginnerMath (SoJung)
 
@@ -20,14 +21,17 @@ BeginnerMath (SoJung)
     game over dialog pops up. Game over dialog has two possibilities: 1) if user got score of lower than 15, user can either go back to
     main page to select math or literacy or try again 2) if user got score of higher than 15, user can either go watch a short video as
     a reward or go back to main page to select math or literacy. If user is not at the end of the test and has clicked correct answer,
-    score goes up by 1. Then the number of question also goes up by 1 and the next question is displayed.
+    score goes up by 1. Then the number of question also goes up by 1 and the next question is displayed. The layout for this page is
+    defined by the math.xml in the layout folder.
     Used this tutorial to base code off of: https://www.youtube.com/watch?v=JA9s_Fntg_4
+
+
 
 BeginnerMathQuestions (SoJung)
 
     This is level 1 math multiple choice test, choices, and answer bank. The activity is hardcoded due to its relatively short text lengths.
     Arrays of questions, choices, and answers are declared first. Then the getters for questions, choices, and answers are declared. Question
-    length is hardcoded because it is set amount.
+    length is hardcoded because it is set amount. This page does not need a layout xml file because it is a database hardcoded with test questions.
     Used this tutorial to base code off of: https://www.youtube.com/watch?v=JA9s_Fntg_4
 
 Flashcard_lit (Casey)
@@ -51,14 +55,15 @@ Flashcard_lit (Casey)
     resource. We pull these into an integer array and will be called on using setFactory(ViewFactory factory): This method is used to
     create a new view for ImageSwitcher. By using this method we create a new ImageView and replace the old view with the new image.
     Then the array is cycled by an if statement incrementing until the end or beginning of the alphabet is reached. The "Next" and "Prev"
-    buttons use onclicklistener action to initiate the change.
+    buttons use onclicklistener action to initiate the change. This page's layout is defined by flashcard_lit.xml in the layout folder.
 
     Used this tutorial to base code off of: https://www.youtube.com/watch?v=1xjhtXA3uv4
 
 Homepage (Casey)
 
     Homepage is the welcome page where user will choose to go to either literacy page or math page. "ABC" button will take you to the literacy
-    homepage. "123" Button will take you to the math homepage.
+    homepage. "123" Button will take you to the math homepage. The homepage's layout is defined by the homepage.xml file. It is pretty
+    straight-forward because it has two buttons to take you to either the 123 or ABC section of our app.
 
 IntermediateMath (SoJung)
 
@@ -68,14 +73,15 @@ IntermediateMath (SoJung)
     game over dialog pops up. Game over dialog has two possibilities: 1) if user got score of lower than 15, user can either go back to
     main page to select math or literacy or try again 2) if user got score of higher than 15, user can either go watch a short video as
     a reward or go back to main page to select math or literacy. If user is not at the end of the test and has clicked correct answer,
-    score goes up by 1. Then the number of question also goes up by 1 and the next question is displayed.
+    score goes up by 1. Then the number of question also goes up by 1 and the next question is displayed. The layout for this page is
+    defined by the math.xml in the layout folder.
     Used this tutorial to base code off of: https://www.youtube.com/watch?v=JA9s_Fntg_4
 
 IntermediateMathQuestions (SoJung)
 
     This is level 2 math multiple choice test, choices, and answer bank. The activity is hardcoded due to its relatively short text lengths.
     Arrays of questions, choices, and answers are declared first. Then the getters for questions, choices, and answers are declared. Question
-    length is hardcoded because it is set amount.
+    length is hardcoded because it is set amount. This page does not need a layout xml file because it is a database hardcoded with test questions.
     Used this tutorial to base code off of: https://www.youtube.com/watch?v=JA9s_Fntg_4
 
 App.java (Sishir)
@@ -141,7 +147,7 @@ Literacy1Video (SoJung)
     The page has video reward for literacy level 1 test. Videoview is first declared from the layout. The media controller is created
     so that when the user touches the video, the controller pops up from the bottom of the screen. Then the URI for the video is set.
     The video starts upon arriving on the page. After finishing the video, little message comes up saying "Great work." If any error occurs
-    during playing the video, the error message will come up.
+    during playing the video, the error message will come up. This page's layout is defined by the literacy1video.xml page in the layout folder.
     Used this tutorial to base code off of: http://abhiandroid.com/ui/videoview
 
 Literacy2 (Sishir)
@@ -176,14 +182,16 @@ Literacy2 (Sishir)
     Used this tutorial/walkthrough to base code off of: https://youtu.be/-4bZ_rfvBTk
 
 LiteracyHome (Casey)
-    This is a main page for literacy where user can choose to view flashcards or take level 1 or 2 tests
+
+    This is a main page for literacy where user can choose to view flashcards or take level 1 or 2 tests. The layout of this page
+    is defined by the literacyhome.xml page in the layout folder.
 
 Literacy2Video (SoJung)
 
     The page has video reward for literacy level 2 test. Videoview is first declared from the layout. The media controller is created
     so that when the user touches the video, the controller pops up from the bottom of the screen. Then the URI for the video is set.
     The video starts upon arriving on the page. After finishing the video, little message comes up saying "Great work." If any error occurs
-    during playing the video, the error message will come up.
+    during playing the video, the error message will come up. This page's layout is defined by the literacy2video.xml page in the layout folder.
     Used this tutorial to base code off of: http://abhiandroid.com/ui/videoview
 
 MathBeginnerVideo (SoJung)
@@ -191,17 +199,17 @@ MathBeginnerVideo (SoJung)
     The page has video reward for math level 1 test. Videoview is first declared from the layout. The media controller is created
     so that when the user touches the video, the controller pops up from the bottom of the screen. Then the URI for the video is set.
     The video starts upon arriving on the page. After finishing the video, little message comes up saying "Great work." If any error occurs
-    during playing the video, the error message will come up.
+    during playing the video, the error message will come up. This page's layout is defined by the mathbeginnervideo.xml page in the layout folder.
     Used this tutorial to base code off of: http://abhiandroid.com/ui/videoview
 
 MathHome
 
-    This is where the user can choose which level of math test to take.
+    This is where the user can choose which level of math test to take.This page's layout is defined by the mathhome.xml page.
 
 MathInterVideo (SoJung)
 
     The page has video reward for math level 2 test. Videoview is first declared from the layout. The media controller is created
     so that when the user touches the video, the controller pops up from the bottom of the screen. Then the URI for the video is set.
     The video starts upon arriving on the page. After finishing the video, little message comes up saying "Great work." If any error occurs
-    during playing the video, the error message will come up.
+    during playing the video, the error message will come up. This page's layout is defined by the mathintervideo.xml page in the layout folder.
     Used this tutorial to base code off of: http://abhiandroid.com/ui/videoview

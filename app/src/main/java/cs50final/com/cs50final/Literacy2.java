@@ -309,3 +309,5 @@ public class Literacy2 extends AppCompatActivity implements TextToSpeech.OnInitL
         }
     }
 }
+
+// Used this youtube walkthrough/tutorial as a basis for code: https://youtu.be/-4bZ_rfvBTk

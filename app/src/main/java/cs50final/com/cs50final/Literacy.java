@@ -21,8 +21,6 @@ import com.firebase.client.ValueEventListener;
 
 public class Literacy extends AppCompatActivity implements TextToSpeech.OnInitListener{
 
-    // updated Firebase URL. working
-
     // THIS IS EASY DIFFUCULTY QUIZ FOR LITERACY
 
     // Define question field and buttons for page
@@ -304,3 +302,5 @@ public class Literacy extends AppCompatActivity implements TextToSpeech.OnInitLi
             alertDialog.show();}
         }
     }
+
+// Used this youtube walkthrough/tutorial as a basis for code: https://youtu.be/-4bZ_rfvBTk
